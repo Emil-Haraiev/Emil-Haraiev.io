@@ -1,0 +1,39 @@
+.userCar-wrapper{
+  display: flex;
+  margin: 35px auto;
+  width: 600px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.userCard {
+  width: 290px;
+  height: 245px;
+  background: #333348;
+  border-radius: 40px;
+  &_info{
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    margin-top: 15px;
+    line-height: 24px;
+    color: #EEEEEE;
+    text-align: center;
+  }
+  &_button{
+    display: block;
+    width: 170px;
+    height: 45px;
+    cursor: pointer;
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 23px;
+    color: #EEEEEE;
+    border: none;
+    margin: 25px auto;
+    background: #52519D;
+    border-radius: 40px;
+  }
+}
