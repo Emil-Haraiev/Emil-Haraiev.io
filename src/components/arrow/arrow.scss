@@ -1,0 +1,17 @@
+.arrowWrapper{
+  display: flex;
+  justify-content: space-between;
+  &-item{
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    color: white;
+    div{
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  }
+  img{
+
+  }
+}

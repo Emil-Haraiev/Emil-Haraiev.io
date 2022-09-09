@@ -3,6 +3,7 @@ import Filter from '../filter/Filter';
 import Search from '../search/Search';
 import './app.scss';
 import UserCard from '../userCard/UserCard';
+import Arrow from '../arrow/Arrow';
 const App = () => {
     return (
         <>
@@ -11,6 +12,7 @@ const App = () => {
                 <Search />
             </div>
             <UserCard />
+            <Arrow />
         </>
     );
 };

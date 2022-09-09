@@ -8,7 +8,7 @@ const UserCard = () => {
                     <div className="userCard_info-name">Name</div>
                     <div className="userCard_info-email">Email</div>
                     <div className="userCard_info-number">Number</div>
-                    <div className="userCard_info-number2">Number</div>
+                    <div className="userCard_info-site">Site</div>
                 </div>
                 <button className="userCard_button">More posts</button>
             </div>
@@ -17,7 +17,7 @@ const UserCard = () => {
                     <div className="userCard_info-name">Name</div>
                     <div className="userCard_info-email">Email</div>
                     <div className="userCard_info-number">Number</div>
-                    <div className="userCard_info-number2">Number</div>
+                    <div className="userCard_info-site">Site</div>
                 </div>
                 <button className="userCard_button">More posts</button>
             </div>
@@ -26,7 +26,7 @@ const UserCard = () => {
                     <div className="userCard_info-name">Name</div>
                     <div className="userCard_info-email">Email</div>
                     <div className="userCard_info-number">Number</div>
-                    <div className="userCard_info-number2">Number</div>
+                    <div className="userCard_info-site">Site</div>
                 </div>
                 <button className="userCard_button">More posts</button>
             </div>
@@ -35,7 +35,7 @@ const UserCard = () => {
                     <div className="userCard_info-name">Name</div>
                     <div className="userCard_info-email">Email</div>
                     <div className="userCard_info-number">Number</div>
-                    <div className="userCard_info-number2">Number</div>
+                    <div className="userCard_info-site">Site</div>
                 </div>
                 <button className="userCard_button">More posts</button>
             </div>
