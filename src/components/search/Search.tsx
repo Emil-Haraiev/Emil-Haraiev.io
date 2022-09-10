@@ -1,9 +1,17 @@
 import React from 'react';
 import './search.scss';
-const Search = () => {
+
+interface Props {
+    setValue: Function;
+}
+const Search: React.FC<Props> = ({ setValue }) => {
     return (
         <>
-            <input className="searchInput" placeholder="Search" />
+            <input
+                className="searchInput"
+                placeholder="Search"
+                onChange={event => setValue(event.target.value)}
+            />
         </>
     );
 };

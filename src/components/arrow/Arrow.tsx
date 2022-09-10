@@ -1,16 +1,32 @@
 import React from 'react';
 import './arrow.scss';
-const Arrow = () => {
+interface Props {
+    page: number;
+    setPage: Function;
+}
+const Arrow: React.FC<Props> = ({ page, setPage }) => {
+    const handleChangePage = (currentPage: number) => {
+        if (currentPage >= 1 && currentPage <= 3) {
+            setPage(currentPage);
+        }
+        console.log(page);
+    };
     return (
         <div className="arrowWrapper">
-            <div className="arrowWrapper-item">
+            <div
+                onClick={() => handleChangePage(page - 1)}
+                className="arrowWrapper-item"
+            >
                 <img
                     src={require('../../assets/left.svg').default}
                     alt="left"
                 />
                 <div>Previous</div>
             </div>
-            <div className="arrowWrapper-item">
+            <div
+                onClick={() => handleChangePage(page + 1)}
+                className="arrowWrapper-item"
+            >
                 <div>Next</div>
                 <img
                     src={require('../../assets/right.svg').default}

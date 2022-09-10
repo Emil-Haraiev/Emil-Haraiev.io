@@ -1,41 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './posts.scss';
-const Posts = () => {
+import { Posts } from '../../entities';
+import { CSSTransition } from 'react-transition-group';
+interface Props {
+    posts: Posts[];
+    inProp: boolean;
+}
+const UserPosts: React.FC<Props> = ({ posts, inProp }) => {
+    const [isActive, setIsActive] = useState(false);
+    const userPosts = posts.slice(0, 4);
+    const activePost = (id: number) => {
+        if (id === userPosts) {
+            setIsActive(!isActive);
+        }
+        console.log(id);
+    };
+
     return (
-        <div className="postsWrapper">
-            <div className="post">
-                <h3 className="post_title">Title 1</h3>
-                <div className="post_body">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Autem cum distinctio dolore labore placeat quas unde.
-                    Architecto consequuntur cupiditate dicta ea hic maiores
-                    molestias odio praesentium repellat, reprehenderit similique
-                    sint.
-                </div>
-                <hr />
+        <CSSTransition
+            in={inProp}
+            timeout={200}
+            classNames="posts"
+            unmountOnExit
+        >
+            <div className="postsWrapper">
+                {userPosts.map(item => (
+                    <div className="post">
+                        <h3
+                            onClick={() => activePost(item.id)}
+                            className="post_title"
+                        >
+                            {item.title}
+                        </h3>
+                        {isActive && (
+                            <div className="post_body">{item.body}</div>
+                        )}
+                        <hr />
+                    </div>
+                ))}
             </div>
-            <div className="post">
-                <h3 className="post_title">Title 2</h3>
-                <div className="post_body"></div>
-                <hr />
-            </div>
-            <div className="post">
-                <h3 className="post_title">Title 3</h3>
-                <div className="post_body"></div>
-                <hr />
-            </div>
-            <div className="post">
-                <h3 className="post_title">Title 4</h3>
-                <div className="post_body"></div>
-                <hr />
-            </div>
-            <div className="post">
-                <h3 className="post_title">Title 5</h3>
-                <div className="post_body"></div>
-                <hr />
-            </div>
-        </div>
+        </CSSTransition>
     );
 };
 
-export default Posts;
+export default UserPosts;

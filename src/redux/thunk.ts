@@ -1,25 +1,26 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { User, Posts } from '../entities';
+import posts from '../components/posts/Posts';
 
-export const fetchUsersThunk = createAsyncThunk<User[], void, any>(
+export const fetchUsersThunk = createAsyncThunk<User[], number, any>(
     'users/fetchUsers',
-    async () => {
+    async page => {
         try {
             const response = await fetch(
                 `https://jsonplaceholder.typicode.com/users?q=${4}`,
             );
             const data = await response.json();
 
-            return data;
+            return data.slice(0, 4);
         } catch (e) {
             return e;
         }
     },
 );
 
-export const fetchPostsThunk = createAsyncThunk<Posts[], void, any>(
+export const fetchPostsThunk = createAsyncThunk<Posts[], number, any>(
     'posts/fetchPosts',
-    async () => {
+    async id => {
         try {
             const response = await fetch(
                 'https://jsonplaceholder.typicode.com/posts',
@@ -27,7 +28,7 @@ export const fetchPostsThunk = createAsyncThunk<Posts[], void, any>(
 
             const data = await response.json();
 
-            return data;
+            return data.filter((item: Posts) => item.userId === id);
         } catch (e) {
             return e;
         }

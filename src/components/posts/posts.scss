@@ -1,9 +1,10 @@
 .postsWrapper{
-  width: 420px;
-  height: 420px;
-  padding: 68px 90px;
+  width: 450px;
+  height: 500px;
+  padding: 10px 50px;
   background: #333348;
   border-radius: 40px;
+
 }
 
 .post{
@@ -12,7 +13,7 @@
     font-style: normal;
     font-weight: 600;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 20px;
     color: #FFFFFF;
   }
@@ -24,7 +25,20 @@
   }
 
 }
-
+.posts-enter {
+  opacity: 0;
+}
+.posts-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+.posts-exit {
+  opacity: 1;
+}
+.posts-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}
 hr{
   border: 0.5px solid #4C4C6A;
 }

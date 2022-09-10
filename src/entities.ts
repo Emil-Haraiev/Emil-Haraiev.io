@@ -1,8 +1,9 @@
 export interface User {
+    id: number;
     name: string;
     email: string;
-    number: number;
-    site: string;
+    phone: number;
+    website: string;
 }
 
 export interface InitialState {
@@ -13,8 +14,8 @@ export interface InitialState {
 }
 
 export interface Posts {
-    userId: 1;
-    id: 1;
+    userId: number;
+    id: number;
     title: string;
     body: string;
 }
