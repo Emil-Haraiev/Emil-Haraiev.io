@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { InitialState } from '../entities';
-import { fetchUsersThunk} from './thunk';
+import { fetchUsersThunk } from './thunk';
 const initialState: InitialState = {
     users: [],
     usersLoading: false,
     error: '',
 };
 
-export const userSlice = createSlice({
+const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {},
@@ -24,6 +24,8 @@ export const userSlice = createSlice({
         builder.addCase(fetchUsersThunk.rejected, (state, action) => ({
             ...state,
             usersLoading: false,
-        }))
+        }));
     },
 });
+
+export default userSlice;
