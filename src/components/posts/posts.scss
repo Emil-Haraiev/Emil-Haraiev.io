@@ -1,0 +1,30 @@
+.postsWrapper{
+  width: 420px;
+  height: 420px;
+  padding: 68px 90px;
+  background: #333348;
+  border-radius: 40px;
+}
+
+.post{
+  &_title{
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 20px;
+    color: #FFFFFF;
+  }
+  &_body{
+    font-family: 'Sora';
+    font-style: normal;
+    color: #FFFFFF;
+    font-size: 15px;
+  }
+
+}
+
+hr{
+  border: 0.5px solid #4C4C6A;
+}

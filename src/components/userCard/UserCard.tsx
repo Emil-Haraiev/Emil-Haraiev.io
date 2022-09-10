@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './userCard.scss';
 import { useDispatch } from 'react-redux';
-import { fetchUsersThunk } from '../../redux/thunk';
+import { fetchPostsThunk, fetchUsersThunk } from '../../redux/thunk';
 import type {} from 'redux-thunk/extend-redux';
 
 const UserCard = () => {
@@ -9,6 +9,10 @@ const UserCard = () => {
 
     useEffect(() => {
         dispatch(fetchUsersThunk());
+    }, []);
+
+    useEffect(() => {
+        dispatch(fetchPostsThunk());
     }, []);
     return (
         <div className="userCar-wrapper">

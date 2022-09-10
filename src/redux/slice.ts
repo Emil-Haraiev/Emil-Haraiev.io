@@ -1,18 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { InitialState } from '../entities';
-import { fetchUsersThunk } from './thunk';
+import { fetchPostsThunk, fetchUsersThunk } from './thunk';
 const initialState: InitialState = {
     users: [],
+    postsLoading: false,
     usersLoading: false,
     error: '',
 };
 
-const userSlice = createSlice({
+export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {},
     extraReducers: builder => {
-        builder.addCase(fetchUsersThunk.pending, (state: InitialState) => ({
+        builder.addCase(fetchUsersThunk.pending, state => ({
             ...state,
             usersLoading: true,
         }));
@@ -21,11 +22,22 @@ const userSlice = createSlice({
             users: action.payload,
             usersLoading: false,
         }));
-        builder.addCase(fetchUsersThunk.rejected, (state, action) => ({
+        builder.addCase(fetchUsersThunk.rejected, state => ({
             ...state,
             usersLoading: false,
         }));
+        builder.addCase(fetchPostsThunk.pending, state => ({
+            ...state,
+            postsLoading: true,
+        }));
+        builder.addCase(fetchPostsThunk.fulfilled, (state, action) => ({
+            ...state,
+            posts: action.payload,
+            postsLoading: false,
+        }));
+        builder.addCase(fetchPostsThunk.rejected, state => ({
+            ...state,
+            postsLoading: false,
+        }));
     },
 });
-
-export default userSlice;
