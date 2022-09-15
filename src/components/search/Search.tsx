@@ -4,6 +4,7 @@ import './search.scss';
 interface Props {
     setValue: Function;
 }
+
 const Search: React.FC<Props> = ({ setValue }) => {
     return (
         <>

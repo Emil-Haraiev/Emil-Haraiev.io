@@ -1,6 +1,7 @@
 .arrowWrapper{
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
   &-item{
     display: flex;
     cursor: pointer;
@@ -11,7 +12,5 @@
       margin-right: 20px;
     }
   }
-  img{
 
-  }
 }

@@ -1,16 +1,18 @@
 import React from 'react';
 import './arrow.scss';
+
 interface Props {
     page: number;
     setPage: Function;
 }
+
 const Arrow: React.FC<Props> = ({ page, setPage }) => {
     const handleChangePage = (currentPage: number) => {
         if (currentPage >= 1 && currentPage <= 3) {
             setPage(currentPage);
         }
-        console.log(page);
     };
+
     return (
         <div className="arrowWrapper">
             <div

@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { User, Posts } from '../entities';
-import posts from '../components/posts/Posts';
 
 export const fetchUsersThunk = createAsyncThunk<User[], number, any>(
     'users/fetchUsers',
@@ -10,8 +9,7 @@ export const fetchUsersThunk = createAsyncThunk<User[], number, any>(
                 `https://jsonplaceholder.typicode.com/users?q=${4}`,
             );
             const data = await response.json();
-
-            return data.slice(0, 4);
+            return data;
         } catch (e) {
             return e;
         }

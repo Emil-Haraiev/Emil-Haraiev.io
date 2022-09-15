@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { InitialState } from '../entities';
 import { fetchPostsThunk, fetchUsersThunk } from './thunk';
+
 const initialState: InitialState = {
     users: [],
     postsLoading: false,
@@ -22,9 +23,10 @@ export const userSlice = createSlice({
             users: action.payload,
             usersLoading: false,
         }));
-        builder.addCase(fetchUsersThunk.rejected, state => ({
+        builder.addCase(fetchUsersThunk.rejected, (state, action) => ({
             ...state,
             usersLoading: false,
+            error: action.payload.error.message,
         }));
         builder.addCase(fetchPostsThunk.pending, state => ({
             ...state,
