@@ -26,7 +26,7 @@ export const userSlice = createSlice({
         builder.addCase(fetchUsersThunk.rejected, (state, action) => ({
             ...state,
             usersLoading: false,
-            error: action.payload.error.message,
+            // error: action.payload.error.message,
         }));
         builder.addCase(fetchPostsThunk.pending, state => ({
             ...state,

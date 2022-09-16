@@ -7,28 +7,15 @@ import { User } from '../../entities';
 
 interface Props {
     users: User[];
-    setInProp: Function;
-    value: string;
     page: number;
-    sortUsers: User[];
+    filteredUsers: User[] | [];
 }
 
-const UsersCard: React.FC<Props> = ({
-    users,
-    setInProp,
-    value,
-    page,
-    sortUsers,
-}) => {
+const UsersCard: React.FC<Props> = ({ users, page, filteredUsers }) => {
     const dispatch = useDispatch();
     const handleRequestPost = (id: number) => {
-        setInProp(true);
         dispatch(fetchPostsThunk(id));
     };
-
-    const filteredUsers = sortUsers.filter(user => {
-        return user.name.toLowerCase().includes(value.toLowerCase());
-    });
 
     const slice =
         page === 1

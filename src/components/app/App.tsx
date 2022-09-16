@@ -8,17 +8,15 @@ import UserPosts from '../posts/Posts';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsersThunk } from '../../redux/thunk';
 import { User } from '../../entities';
-import { store } from '../../store';
+import Banner from '../baner/Banner';
 
 const App = () => {
     const [page, setPage] = useState(1);
-    const [inProp, setInProp] = useState(false);
     const [value, setValue] = useState('');
     const dispatch = useDispatch();
     const users = useSelector<any, any>(state => state.users);
     const posts = useSelector<any, any>(state => state.posts);
     const [sortUsers, setSortUsers] = useState<User[]>(users);
-
     useEffect(() => {
         dispatch(fetchUsersThunk(page));
     }, []);
@@ -27,6 +25,11 @@ const App = () => {
             setSortUsers(users);
         }
     }, [users]);
+
+    const filteredUsers = sortUsers.filter(user => {
+        return user.name.toLowerCase().includes(value.toLowerCase());
+    });
+
     return (
         <>
             <div className="header">
@@ -34,15 +37,17 @@ const App = () => {
                 <Search setValue={setValue} />
             </div>
             <div className="contentWrapper">
-                <UsersCard
-                    sortUsers={sortUsers}
-                    value={value}
-                    page={page}
-                    setInProp={setInProp}
-                    users={users}
-                />
+                {filteredUsers.length ? (
+                    <UsersCard
+                        page={page}
+                        users={users}
+                        filteredUsers={filteredUsers}
+                    />
+                ) : (
+                    <Banner />
+                )}
 
-                {posts && <UserPosts inProp={inProp} posts={posts} />}
+                {posts && <UserPosts posts={posts} />}
             </div>
             <Arrow page={page} setPage={setPage} />
         </>
